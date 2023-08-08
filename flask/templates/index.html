@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head><h1>First 500 ads scraped from sreality.cz</h1></head>
+    <body>
+        <table>
+          <tr>
+            <th>Title</th>
+            <th>Image</th>
+        </tr>
+        {% for estate in estates %}
+            <tr>
+                <td>{{ estate[0]}}</td>
+                <td><img src="{{ estate[1] }}" width="400" height="300"></td>
+            </tr>
+        {% endfor %}
+        </table>
+    </body>
+</html>

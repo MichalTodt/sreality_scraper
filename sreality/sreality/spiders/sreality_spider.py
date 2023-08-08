@@ -23,12 +23,6 @@ def insert_ad(ad_name, image_url, connection):
         c.execute(f"INSERT INTO sreality (ad_name, img_url) VALUES ('{ad_name}', '{image_url}');")
 
 
-def read_ads(connection):
-    with connection.cursor() as c:
-        c.execute("SELECT * FROM sreality;")
-        return c.fetchall()
-
-
 class SrealitySpider(scrapy.Spider):
     name = "sreality"
 
