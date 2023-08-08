@@ -3,7 +3,6 @@ WORKDIR /app
 COPY . .
 RUN apk add --update --no-cache --virtual .tmp-build-deps \
     gcc libc-dev linux-headers postgresql-dev \
-    && apk add libffi-dev
-RUN pip3 install -r requirements.txt
-RUN ["scrapy", "crawl", "sreality"]
-ENTRYPOINT ["tail", "-f", "/dev/null"]
+    && apk add libffi-dev \
+    && pip3 install -r requirements.txt
+CMD scrapy crawl sreality
