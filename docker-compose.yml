@@ -17,3 +17,10 @@ services:
       timeout: 60s
       retries: 5
       start_period: 80s
+  web:
+    build: ./flask
+    depends_on:
+      scraper:
+        condition: service_completed_successfully
+    ports:
+      - "8080:8080"
