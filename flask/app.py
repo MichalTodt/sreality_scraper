@@ -10,6 +10,7 @@ def read_ads(connection):
     with connection.cursor() as c:
         c.execute("SELECT * FROM sreality;")
         return c.fetchall()
+    connection.close()
 
 
 application = Flask(__name__)

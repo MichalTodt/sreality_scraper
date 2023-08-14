@@ -3,6 +3,7 @@ import json
 import unicodedata
 
 import psycopg2
+from psycopg2 import sql
 
 
 def get_connection():
@@ -20,7 +21,7 @@ def set_up_db(connection):
 
 def insert_ad(ad_name, image_url, connection):
     with connection.cursor() as c:
-        c.execute(f"INSERT INTO sreality (ad_name, img_url) VALUES ('{ad_name}', '{image_url}');")
+        c.execute(sql.SQL("INSERT INTO {} (ad_name, img_url) VALUES (%s, %s);").format(sql.Identifier('sreality')), [ad_name, image_url])
 
 
 class SrealitySpider(scrapy.Spider):
