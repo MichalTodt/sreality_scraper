@@ -1,6 +1,8 @@
 services:
   scraper:
-    build: ./sreality
+    build:
+      context: ./
+      dockerfile: ./sreality/Dockerfile
     depends_on:
       db:
         condition: service_healthy
